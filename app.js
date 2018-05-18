@@ -7,7 +7,7 @@ let FileStreamRotator = require('file-stream-rotator'); // 日志按时间分割
 
 
 let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
+let searchRouter = require('./routes/search');
 
 let app = express();
 let logDir = path.join(__dirname, 'log');
@@ -30,6 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// cors跨域
 app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -39,7 +40,8 @@ app.all('*', function (req, res, next) {
     next()
 });
 
+// 路由中间件
 app.use('/index', indexRouter);
-app.use('/users', usersRouter);
+app.use('/search', searchRouter);
 
 module.exports = app;
