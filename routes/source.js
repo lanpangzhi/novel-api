@@ -11,7 +11,12 @@ let router = express.Router();
   http://api.zhuishushenqi.com/atoc?view=summary&book=${bookID}
 */
 router.get('/', function (req, res, next) {
-    request.get(`${common.API}/atoc?view=summary&book=${req.query.id}`, function (err, response, body){
+    if (!req.query.id) {
+        res.send(JSON.stringify({ "flag": 0, "msg": "请传入ID..." }));
+    }
+    // req.query.id 编码转义
+    let id = encodeURI(req.query.id);
+    request.get(`${common.API}/atoc?view=summary&book=${id}`, function (err, response, body){
         if(err){
             res.send(JSON.stringify({ "flag": 0, "msg": "请求出错了..." }));
         }
@@ -24,11 +29,9 @@ router.get('/', function (req, res, next) {
         }
 
         // 第一个源是正版源，是收费加密的，所以默认选中第二个源
-        let n;
-        if (!req.query.n || req.query.n == 0){
+        let n = parseInt(req.query.n);
+        if (isNaN(n) || n == 0){
             n = 1;
-        }else{
-            n = req.query.n.trim();
         }
 
         // 判断n是否大于源数据的长度
