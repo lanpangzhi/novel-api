@@ -10,6 +10,8 @@ let indexRouter = require('./routes/index');
 let searchRouter = require('./routes/search');
 let sourceRouter = require('./routes/source');
 let chapterRouter = require('./routes/chapter');
+let articleRouter = require('./routes/article');
+let rankingRouter = require('./routes/ranking');
 
 let app = express();
 let logDir = path.join(__dirname, 'log');
@@ -51,5 +53,9 @@ app.use('/search', searchRouter);
 app.use('/source', sourceRouter);
 // 小说文章列表
 app.use('/chapter', chapterRouter);
+// 小说文章内容
+app.use('/article', articleRouter);
+// 排行榜
+app.use('/ranking', rankingRouter);
 
 module.exports = app;
