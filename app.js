@@ -9,6 +9,7 @@ let FileStreamRotator = require('file-stream-rotator'); // 日志按时间分割
 let indexRouter = require('./routes/index');
 let searchRouter = require('./routes/search');
 let sourceRouter = require('./routes/source');
+let chapterRouter = require('./routes/chapter');
 
 let app = express();
 let logDir = path.join(__dirname, 'log');
@@ -48,5 +49,7 @@ app.use('/index', indexRouter);
 app.use('/search', searchRouter);
 // 小说源
 app.use('/source', sourceRouter);
+// 小说文章列表
+app.use('/chapter', chapterRouter);
 
 module.exports = app;
