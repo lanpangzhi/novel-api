@@ -8,6 +8,7 @@ let FileStreamRotator = require('file-stream-rotator'); // 日志按时间分割
 
 let indexRouter = require('./routes/index');
 let searchRouter = require('./routes/search');
+let sourceRouter = require('./routes/source');
 
 let app = express();
 let logDir = path.join(__dirname, 'log');
@@ -41,7 +42,11 @@ app.all('*', function (req, res, next) {
 });
 
 // 路由中间件
+// 首页
 app.use('/index', indexRouter);
+// 搜索
 app.use('/search', searchRouter);
+// 小说源
+app.use('/source', sourceRouter);
 
 module.exports = app;
