@@ -15,14 +15,15 @@ router.get('/', function(req, res, next) {
       res.send(JSON.stringify({"flag": 0, "msg": "请求出错了..."}));
     }
     
-    // 解析返回数据取20条，并添加图片url链接
+    // 解析返回数据取前20条，并添加图片url链接
     body = JSON.parse(body);
-    let books = body.ranking.books.slice(0, 19);
-    books.forEach(element => {
-      element.cover = common.PIC + element.cover;
-    });
-  
+
     if (body.ok){
+      let books = body.ranking.books.slice(0, 19);
+      books.forEach(element => {
+        element.cover = common.PIC + element.cover;
+      });
+
       res.send(JSON.stringify({ "flag": 1, "books": books, "msg": "OK" }));
     }else{
       res.send(JSON.stringify({ "flag": 0, "msg": "rankingId有问题" }));
