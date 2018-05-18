@@ -15,10 +15,11 @@ router.get('/', function(req, res, next) {
       res.send(JSON.stringify({"flag": 0, "msg": "请求出错了..."}));
     }
     
-    // 解析返回数据取前20条，并添加图片url链接
+    // 解析返回数据
     body = JSON.parse(body);
 
     if (body.ok){
+      // 取前20条，并添加图片url链接
       let books = body.ranking.books.slice(0, 19);
       books.forEach(element => {
         element.cover = common.PIC + element.cover;
