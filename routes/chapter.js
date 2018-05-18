@@ -4,8 +4,8 @@ let common = require('../common/common.json'); // 引用公共文件
 let router = express.Router();
 
 /** 
-  获取小说源
-  返回盗版源和正版源
+  获取小说文章列表
+  返回小说文章列表
   param id {String} 是小说源接口 books.id
   http://api.zhuishushenqi.com/atoc/${id}?view=chapters
 */
