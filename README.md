@@ -10,5 +10,8 @@
 git clone https://github.com/lanpangzhi/novel-api.git
 cd novel-api
 npm install
-DEBUG=novel-api:* npm start
+// Linux MacOS
+DEBUG=novel-api:* & npm start
+// windows 
+set DEBUG=novel-api:* & npm start
 ```
