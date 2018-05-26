@@ -26,7 +26,7 @@ router.get('/', function (req, res, next) {
             // 解析返回的数据
             body = JSON.parse(body);
             if (body.chapters.length > 0) {
-                res.send(JSON.stringify({ "flag": 1, "chapters": body.chapters, "msg": "OK" }));
+                res.send(JSON.stringify({ "flag": 1,"id": body._id,  "chapters": body.chapters, "msg": "OK" }));
            }
         }
         
