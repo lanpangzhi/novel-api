@@ -15,3 +15,8 @@ DEBUG=novel-api:* & npm start
 // windows 
 set DEBUG=novel-api:* & npm start
 ```
+生成api文档
+```
+npm run doc
+http://localhost:3000
+```
