@@ -1,6 +1,6 @@
 {
     "name": "novel-api", 
-    "script": "npm start", 
+    "script": "./bin/www", 
     "cwd": "./", 
     "watch": [ 
         "bin",
