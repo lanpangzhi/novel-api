@@ -4,6 +4,7 @@
 1.0版本:
 
 技术栈使用express-generator、express、request、morgan、file-stream-rotator。接口用追书神器API。
+线上访问地址https://api.langpz.com/
 
 目前接口设计有首页，小说详情页，搜索，小说文章列表页，排行API。
 ```
@@ -15,8 +16,14 @@ DEBUG=novel-api:* & npm start
 // windows 
 set DEBUG=novel-api:* & npm start
 ```
+
 生成api文档
 ```
 npm run doc
 http://localhost:3000
+```
+
+部署
+```
+npm run deploy
 ```
