@@ -9,7 +9,8 @@
     "ignore_watch": [ 
         "node_modules",
         "logs",
-        "public"
+        "public",
+        "log"
     ],
     "watch_options": {
         "followSymlinks": false
