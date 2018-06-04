@@ -12,6 +12,7 @@ let sourceRouter = require('./routes/source');
 let chapterRouter = require('./routes/chapter');
 let articleRouter = require('./routes/article');
 let rankingRouter = require('./routes/ranking');
+let bookRouter = require('./routes/book');
 
 let app = express();
 let logDir = path.join(__dirname, 'log');
@@ -57,6 +58,8 @@ app.use('/chapter', chapterRouter);
 app.use('/article', articleRouter);
 // 排行榜
 app.use('/ranking', rankingRouter);
+// 小说信息
+app.use('/book', bookRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
