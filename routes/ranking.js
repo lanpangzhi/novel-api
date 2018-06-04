@@ -110,6 +110,10 @@ router.get('/:id', function (req, res, next) {
             // 解析返回的数据
             body = JSON.parse(body);
 
+            body.ranking.books.forEach(element => {
+                element.cover = common.PIC + element.cover;
+            });
+
             if (body.ok) {
                 return res.send(JSON.stringify({ "flag": 1, "ranking": body.ranking, "msg": "OK" }));
             } else {
