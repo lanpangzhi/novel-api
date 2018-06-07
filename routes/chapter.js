@@ -31,6 +31,7 @@ let router = express.Router();
  *                   "currency": 0,
  *                   "unreadble": false,
  *                   "isVip": false
+ *                   "n": 0
  *               }
  *           ],
  *           "msg": "OK"
@@ -61,6 +62,9 @@ router.get('/', function (req, res, next) {
             // 解析返回的数据
             body = JSON.parse(body);
             if (body.chapters.length > 0) {
+                body.chapters.forEach((el, index) => {
+                    el.n = index;
+                });
                 return res.send(JSON.stringify({ "flag": 1,"id": body._id,  "chapters": body.chapters, "msg": "OK" }));
            }
         }
