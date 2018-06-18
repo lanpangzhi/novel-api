@@ -84,7 +84,7 @@ router.get('/', function (req, res, next) {
                             let prev,next;
                             body2.chapters[n - 1] ? prev = body2.chapters[n - 1].link : prev = false;
                             body2.chapters[n + 1] ? next = body2.chapters[n + 1].link : next = false;
-
+                            body.chapter += '\\n';
                             if (body2.chapters.length > 0) {
                                 res.send(JSON.stringify({ "flag": 1,"id": id, "chapter": body.chapter, "prev": prev,"next": next, "msg": "OK" }));
                             }
