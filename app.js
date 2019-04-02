@@ -5,6 +5,7 @@ let logger = require('morgan');
 let fs = require('fs');
 let FileStreamRotator = require('file-stream-rotator'); // 日志按时间分割模块
 
+let times = require('./middleware/times');
 
 let indexRouter = require('./routes/index');
 let searchRouter = require('./routes/search');
@@ -44,6 +45,8 @@ app.all('*', function (req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     next()
 });
+
+app.use(times(22,5))
 
 // 路由中间件
 // 首页
