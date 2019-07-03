@@ -20,7 +20,8 @@ set DEBUG=novel-api:* & npm start
 生成api文档
 ```
 npm run doc
-http://localhost:3000
+需要自己配置nginx解析静态资源
+生成的文档在public目录下
 ```
 
 部署
