@@ -12,7 +12,7 @@
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "file-stream-rotator": "^0.2.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "morgan": "~1.9.0",
     "request": "^2.86.0"
   }
